@@ -1,0 +1,26 @@
+{
+  "name": "angular-boilerplate",
+  "version": "0.0.0",
+  "description": "angular-boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptretyakov/angular-boilerplate.git"
+  },
+  "author": "Pavel Tretyakov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptretyakov/angular-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ptretyakov/angular-boilerplate#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.3",
+    "html-webpack-plugin": "^2.30.1",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-merge": "^4.1.0"
+  }
+}

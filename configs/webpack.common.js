@@ -1,6 +1,8 @@
 const path = require('path');
 const helpers = require('./helpers');
 const webpack = require('webpack');
+const { CheckerPlugin } = require('awesome-typescript-loader');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ContextReplacementPlugin = webpack.ContextReplacementPlugin;
 
 module.exports = {
@@ -9,43 +11,51 @@ module.exports = {
     vendor: './src/vendor.ts',
     app: './src/main.ts',
   },
+
   devtool: 'inline-source-map',
+
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loaders: [
+        use: [
           {
             loader: 'awesome-typescript-loader',
             options: { configFileName: helpers.root('tsconfig.json') },
-          }
+          }, 'angular2-template-loader',
         ],
-        exclude: /node_modules/,
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ['to-string-loader'].concat(ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ['css-loader?sourceMap'],
+        })),
+      },
     ]
   },
+
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    modules: [
-      path.resolve(__dirname, "src"), "node_modules"
-    ],
+    modules: [helpers.root('src'), 'node_modules'],
   },
+
   output: {
     path: helpers.root('dist'),
     filename: '[name].js',
   },
+
+  resolveLoader: {
+    modules: [
+      helpers.root('node_modules'),
+    ]
+  },
+  
   plugins: [
-    new webpack.ContextReplacementPlugin(
-      // The (\\|\/) piece accounts for path separators in *nix and Windows
-      /angular(\\|\/)core(\\|\/)@angular/,
-      helpers.root('./src'), // location of your src
-      {} // a map of your routes
-    ),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
-    new webpack.ProvidePlugin({
-      Reflect: 'core-js/es7/reflect'
-    }),
+    new CheckerPlugin(),
+    new ExtractTextPlugin('[name].css'),
+    new webpack.ProvidePlugin({Reflect: 'core-js/es7/reflect'}),
+    new ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, helpers.root("src"), {}),
+    new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
   ],
  };

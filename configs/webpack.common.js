@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['to-string-loader'].concat(ExtractTextPlugin.extract({
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: ['css-loader?sourceMap'],
         })),
       },
@@ -36,7 +36,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
     modules: [helpers.root('src'), 'node_modules'],
   },
 
@@ -55,7 +55,7 @@ module.exports = {
     new CheckerPlugin(),
     new ExtractTextPlugin('[name].css'),
     new webpack.ProvidePlugin({Reflect: 'core-js/es7/reflect'}),
-    new ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, helpers.root("src"), {}),
+    new ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, helpers.root('src'), {}),
     new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']}),
   ],
  };

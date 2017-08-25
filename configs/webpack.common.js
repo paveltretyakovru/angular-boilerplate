@@ -32,6 +32,10 @@ module.exports = {
           use: ['css-loader?sourceMap'],
         })),
       },
+      {
+        test: /\.html$/,
+        use: 'html-loader',
+      }
     ]
   },
 

@@ -8,16 +8,7 @@ export class User {
 @Component({
   selector: 'app',
   styleUrls: ['app.component.css'],
-  template: `
-    <main>
-      Hello, {{user.name}}!
-      <div>
-        <label>Or other name? </label>
-        <input [(ngModel)]="user.name" placeholder="name">
-      </div>
-      <h1>{{title}}</h1>
-    </main>
-  `
+  templateUrl: 'app.component.html', 
 })
 
 export class AppComponent {

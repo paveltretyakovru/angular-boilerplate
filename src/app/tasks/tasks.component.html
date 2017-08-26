@@ -1,5 +1,8 @@
 <div>
-  Tasks body
+  Add task:<br />
+  (current value -> '{{newTask.title}}')<br />
+  <input [(ngModel)]="newTask.title" />
+  <button (click)="addTask()">Add task</button> 
 
   <tasks-list [tasks]="tasks"></tasks-list>
 </div>

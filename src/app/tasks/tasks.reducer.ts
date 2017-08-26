@@ -3,16 +3,22 @@ import { Action } from '@ngrx/store';
 import { ADD_TASK } from './tasks.constants';
 import { Task } from './task/task.model';
 
+let initState: Task[] = [
+  {id: 1, title: 'First task'},
+  {id: 2, title: 'Second task'},
+];
+
 export const tasksReducer = (
-  state: Task[] = [
-    {id: 1, title: 'test 1'},
-    {id: 2, title: 'test 2'},
-  ],
+  state: Task[] = initState,
   action: { type: string, payload: any }
 ) => {
   switch(action.type) {
     case ADD_TASK: {
-      return [...state, action.payload];
+      let newTask: Task = {
+        id: +state[state.length - 1].id + 1,
+        title: action.payload.title,
+      };
+      return [...state, newTask];
     }
 
     default: {

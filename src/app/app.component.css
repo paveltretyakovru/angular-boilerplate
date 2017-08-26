@@ -1,3 +1,7 @@
 main {
-  color: red;
+  color: black;
+}
+
+#router-outlet-wrapper, nav, #hello-wrapper, #title-wrapper {
+  margin: 16px;
 }

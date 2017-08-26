@@ -1,12 +1,22 @@
 <main>
-  Hello, {{user.name}}!
-  <div>
-    <label>Or other name? </label>
+  <div id="title-wrapper">
+    <h1>{{title}}</h1>
+  </div>
+
+  <div id="hello-wrapper">
+    <span>Hello, {{user.name}}!</span>
+    <label>Or have you the other name? </label>
     <input [(ngModel)]="user.name" placeholder="name">
   </div>
-  <h1>{{title}}</h1>
 
-  <!-- Require tasks component -->
-  <tasks></tasks>
+  <nav>
+    <span>Navigation: </span>
+    <a routerLink="/">Go to Main</a> |
+    <a routerLink="/tasks">Got to Tasks manager</a>
+  </nav>
+
+  <div id="router-outlet-wrapper">
+    <router-outlet></router-outlet>
+  </div>
 
 </main>

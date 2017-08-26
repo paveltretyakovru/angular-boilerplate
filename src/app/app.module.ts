@@ -8,18 +8,20 @@ import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { tasksReducer } from './tasks/tasks.reducer';
 import { TasksModule } from './tasks/tasks.module';
-import { TasksRoutingModule } from './tasks/tasks-routing.module';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   imports: [
     FormsModule,
     TasksModule,
     BrowserModule,
-    TasksRoutingModule,
+    AppRoutingModule,
     StoreModule.forRoot({ tasks: tasksReducer }),
   ],
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   bootstrap: [ AppComponent ],
 })

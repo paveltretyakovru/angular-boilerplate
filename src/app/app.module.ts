@@ -4,8 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { APP_BASE_HREF } from '@angular/common';
+// Material imports
+import {MdTabsModule} from '@angular/material';
+import {MdToolbarModule, MdIconModule} from '@angular/material';
 
+// Self imports
 import { AppComponent } from './app.component';
 import { tasksReducer } from './tasks/tasks.reducer';
 import { TasksModule } from './tasks/tasks.module';
@@ -14,12 +17,21 @@ import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   imports: [
+
+    // Angular modules
     FormsModule,
-    TasksModule,
     BrowserModule,
+    
+    // Self modules
+    TasksModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     StoreModule.forRoot({ tasks: tasksReducer }),
+    
+    // Material modules
+    MdTabsModule,
+    MdIconModule,
+    MdToolbarModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,

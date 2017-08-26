@@ -15,4 +15,9 @@ const appRoutes: Routes = [
   },
 ];
 
+export const navRoutes: any[] = [
+  { path: '', label: 'Home', isActive: true },
+  { path: 'tasks', label: 'Tasks Manager', isActive: false },
+];
+
 export const AppRoutingModule = RouterModule.forRoot(appRoutes);

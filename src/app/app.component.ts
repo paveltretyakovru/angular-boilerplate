@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { navRoutes } from './app-routing.module';
+
 export class User {
   id: number;
   name: string;
@@ -12,9 +14,7 @@ export class User {
 })
 
 export class AppComponent {
-  title = 'Angular boilerplate';
-  user: User = {
-    id: 1,
-    name: 'Pavel',
-  };
+  user: User = { id: 1, name: 'Pavel' };
+  title: string = 'Angular boilerplate';
+  navRoutes: any[] = navRoutes;
 }

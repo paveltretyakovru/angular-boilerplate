@@ -1,10 +1,7 @@
 @import "~normalize.css/normalize.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-#router-outlet-wrapper, nav, #hello-wrapper, #title-wrapper {
-  margin: 16px;
-}
+body { font-family: 'Roboto', sans-serif }
+.toolbar-icon { padding: 0 14px }
+.toolbar-spacer { flex: 1 1 auto }
+#router-outlet-wrapper, nav, #hello-wrapper { margin: 16px }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -17,6 +18,7 @@ import { AppRoutingModule } from "./app-routing.module";
     TasksModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({ tasks: tasksReducer }),
   ],
   declarations: [

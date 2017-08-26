@@ -1,5 +1,8 @@
-main {
-  color: black;
+@import "~normalize.css/normalize.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 #router-outlet-wrapper, nav, #hello-wrapper, #title-wrapper {

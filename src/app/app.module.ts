@@ -1,24 +1,22 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 
-import { AppComponent }  from './app.component';
+import { AppComponent } from './app.component';
+import { tasksReducer } from './tasks/tasks.reducer';
+import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   imports: [
+    FormsModule,
+    TasksModule,
     BrowserModule,
-    FormsModule // <-- import the FormsModule before binding with [(ngModel)]
+    StoreModule.forRoot({ tasks: tasksReducer }),
   ],
   declarations: [
-    AppComponent
+    AppComponent,
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
 })
 export class AppModule { }
-
-
-/*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

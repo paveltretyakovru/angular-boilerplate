@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Task } from './task/task.model';
-import { ADD_TASK } from './tasks.constants';
 import { AppStore } from '../app-store.model';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'tasks',
@@ -14,11 +14,14 @@ export class TasksComponent {
   tasks: Observable<Task[]>;
   newTask: Task = {id: 0, title: ''};
 
-  constructor(private store: Store<AppStore>) {
+  constructor(
+    private store: Store<AppStore>,
+    private tasksServive: TasksService
+  ) {
     this.tasks = store.select('tasks');
   }
 
   addTask() {
-    this.store.dispatch({type: ADD_TASK, payload: this.newTask});
+    this.tasksServive.addTask(this.newTask);
   }
 }

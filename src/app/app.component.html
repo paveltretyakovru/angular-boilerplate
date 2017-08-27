@@ -1,33 +1,39 @@
-<main>
+<main class="container-fluid">
 
   <!-- Toolbar  -->
-  <md-toolbar color="primary">
-    <span>{{title}}</span>
-    <span class="toolbar-spacer"></span>
-    <md-icon class="toolbar-icon">verified_user</md-icon>
-  </md-toolbar>
-
-  <!-- Navigation tab bar  -->
-  <nav md-tab-nav-bar>
-    <a md-tab-link
-      *ngFor="let navRoute of navRoutes"
-      [routerLink]="navRoute.path"
-      routerLinkActive
-      #rla="routerLinkActive"
-      [routerLinkActiveOptions]="{exact: true}"
-      [active]="rla.isActive">
-      {{navRoute.label}}
-    </a>
-  </nav>
-
-  <div id="hello-wrapper">
-    <span>Hello, {{user.name}}!</span>
-    <label>Or have you the other name? </label>
-    <input [(ngModel)]="user.name" placeholder="name">
+  <div class="row">
+    <div class="col-xs">
+      <md-toolbar color="primary">
+        <span>{{title}}</span>
+        <span class="toolbar-spacer"></span>
+        <md-icon class="toolbar-icon">verified_user</md-icon>
+      </md-toolbar>
+    </div>
   </div>
 
-  <div id="router-outlet-wrapper">
-    <router-outlet></router-outlet>
+
+  <!-- Navigation tab bar  -->
+  <div class="row">
+    <div class="col-xs">
+      <nav md-tab-nav-bar>
+        <a md-tab-link
+          *ngFor="let navRoute of navRoutes"
+          [routerLink]="navRoute.path"
+          routerLinkActive
+          #rla="routerLinkActive"
+          [routerLinkActiveOptions]="{exact: true}"
+          [active]="rla.isActive">
+          {{navRoute.label}}
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!--  Page Content  -->
+  <div class="row">
+    <div class="col-xs">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 
 </main>

@@ -1,7 +1,24 @@
 @import "~normalize.css/normalize.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~flexboxgrid/css/flexboxgrid.min.css";
 
-body { font-family: 'Roboto', sans-serif }
+/*  Tags  */
+body { font-family: Roboto, sans-serif;}
+
+/*  Classes  */
 .toolbar-icon { padding: 0 14px }
 .toolbar-spacer { flex: 1 1 auto }
-#router-outlet-wrapper, nav, #hello-wrapper { margin: 16px }
+
+/* material tipography | Demo - https://codepen.io/lingtalfi/pen/VKbZxO */
+.display4 { font-weight: 300; font-size: 112px; letter-spacing: -4px }
+.display3 { font-weight: 400; font-size: 56px; letter-spacing: -1px }
+.display2 { font-weight: 400; font-size: 45px; line-height: 48px }
+.display1 { font-weight: 400; font-size: 34px; line-height: 40px }
+.headline { font-weight: 400; font-size: 24px; line-height: 32px }
+.title { font-weight: 500; font-size: 20px; letter-spacing: 0.3px }
+.subheading { font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0.3px }
+
+.w300 { font-weight: 300 }
+.w400 { font-weight: 400 }
+.w500 { font-weight: 500 }
+.w700 { font-weight: 700 }
